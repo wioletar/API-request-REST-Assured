@@ -1,5 +1,7 @@
 import com.google.gson.JsonObject;
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.equalTo;
@@ -8,15 +10,26 @@ import static org.hamcrest.Matchers.hasSize;
 
 public class InvoiceNinjaTest {
 
+    Response response;
+    RestAssured restAssured;
+    private static final String CONTENT_PATH="http://79.137.68.21/api/v1";
+    private static final String HEADER_CONTENT_TYPE="application/json";
+    private static final String HEADER_TOKEN="apoqghyipkpka2kya3drigita4fyucz3";
+
+    @BeforeMethod
+    public void setUp() {
+        restAssured = new RestAssured();
+
+    }
 
     @Test
     public void nameOfClientsCityTest() {
-        new RestAssured()
-                .given()
-                .header("Content-Type", "application/json")
-                .header("X-Ninja-Token", "apoqghyipkpka2kya3drigita4fyucz3")
+
+                restAssured.given()
+                .header("Content-Type", HEADER_CONTENT_TYPE)
+                .header("X-Ninja-Token", HEADER_TOKEN)
                 .when()
-                .get("http://79.137.68.21/api/v1/clients/104")
+                .get(CONTENT_PATH+"/clients/104")
                 .then()
                 .assertThat()
                 .statusCode(200)
@@ -31,13 +44,13 @@ public class InvoiceNinjaTest {
         String nameOfSubPage = "invoices";
         int numberOfObjects = 15;
 
-        new RestAssured()
+        restAssured
                 .given()
-                .header("Content-Type", "application/json")
-                .header("X-Ninja-Token", "apoqghyipkpka2kya3drigita4fyucz3")
+                .header("Content-Type", HEADER_CONTENT_TYPE)
+                .header("X-Ninja-Token", HEADER_TOKEN)
                 .pathParam("subPage", nameOfSubPage)
                 .when()
-                .get("http://79.137.68.21/api/v1/{subPage}")
+                .get(CONTENT_PATH+"/{subPage}")
                 .then()
                 .assertThat()
                 .body("data", hasSize(numberOfObjects));
@@ -56,13 +69,13 @@ public class InvoiceNinjaTest {
 
     @Test(dataProvider = "clientsAndNumberOfInvoices")
     public void numberOfInvoicesOfDifferentClientTest(String clientName, int clientId) {
-        new RestAssured()
+        restAssured
                 .given()
-                .header("Content-Type", "application/json")
-                .header("X-Ninja-Token", "apoqghyipkpka2kya3drigita4fyucz3")
+                .header("Content-Type", HEADER_CONTENT_TYPE)
+                .header("X-Ninja-Token", HEADER_TOKEN)
                 .pathParam("id", clientId).
                 when().
-                get("http://79.137.68.21/api/v1/clients/{id}").
+                get(CONTENT_PATH+"/clients/{id}").
                 then().
                 assertThat().
                 body("data.name", equalTo(clientName));
@@ -72,8 +85,8 @@ public class InvoiceNinjaTest {
     @DataProvider(name = "inputData")
     public static Object[][] inputData() {
         return new Object[][]{
-                {"Client-20WR", "Suwałki"},
-                {"Client-21WR", "Gdańsk"}
+                {"Client-22WR", "Suwałki"},
+                {"Client-23WR", "Gdańsk"}
         };
     }
 
@@ -84,18 +97,38 @@ public class InvoiceNinjaTest {
         jsonObject.addProperty("name", clientName);
         jsonObject.addProperty("city",city);
 
-        new RestAssured()
+        response=restAssured
                 .given()
-                    .header("Content-Type", "application/json")
-                    .header("X-Ninja-Token", "apoqghyipkpka2kya3drigita4fyucz3")
+                    .header("Content-Type", HEADER_CONTENT_TYPE)
+                    .header("X-Ninja-Token", HEADER_TOKEN)
                     .body(jsonObject.toString())
                 .when()
-                    .post("http://79.137.68.21/api/v1/clients")
+                    .post(CONTENT_PATH+"/clients")
                 .then()
                     .assertThat()
                         .statusCode(200)
                     .and()
-                        .body("data.name", equalTo(clientName));
+                        .body("data.name", equalTo(clientName))
+                .extract()
+                .response();
+        response.print();
     }
+
+    @Test
+    public void deleteClientTest(){
+        String clientId = "124";
+        response=restAssured
+                .given()
+                .header("Content-Type", HEADER_CONTENT_TYPE)
+                .header("X-Ninja-Token", HEADER_TOKEN)
+                .delete(CONTENT_PATH+"/clients/"+clientId)
+                .then()
+                .assertThat()
+                .statusCode(200)
+                .extract()
+                .response();
+        response.print();
+    }
+
 }
 

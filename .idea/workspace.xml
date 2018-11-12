@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c33166d7-6785-4de0-a371-427ce78bf708" name="Default Changelist" comment="" />
+    <list default="true" id="c33166d7-6785-4de0-a371-427ce78bf708" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/InvoiceNinjaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/InvoiceNinjaTest.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,17 +53,18 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4" />
+          <entry key="java" value="227" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4" />
+          <entry key="JAVA" value="227" />
         </counts>
       </usages-collector>
     </session>
@@ -70,8 +74,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/InvoiceNinjaTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+            <state relative-caret-position="158">
+              <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,8 +131,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,11 +170,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541761927060" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542035872094" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProjektyOdGrupy/Maven_InvoiceNinjaX_RestAssured" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -183,7 +190,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.InvoiceNinjaTest.putNewJsonTest">
+  <component name="RunManager" selected="TestNG.InvoiceNinjaTest.deleteClientTest">
+    <configuration name="InvoiceNinjaTest.deleteClientTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="rest-assured" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="InvoiceNinjaTest" />
+      <option name="METHOD_NAME" value="deleteClientTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="InvoiceNinjaTest.nameOfClientsCityTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="restAssured" />
       <option name="PACKAGE_NAME" value="" />
@@ -201,18 +220,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="InvoiceNinjaTest" />
       <option name="METHOD_NAME" value="numberOfInvoicesOfDifferentClientTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InvoiceNinjaTest.numberOfObjectsTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="restAssured" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="InvoiceNinjaTest" />
-      <option name="METHOD_NAME" value="numberOfObjectsTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -246,18 +253,18 @@
     </configuration>
     <list>
       <item itemvalue="TestNG.InvoiceNinjaTest.nameOfClientsCityTest" />
-      <item itemvalue="TestNG.InvoiceNinjaTest.numberOfObjectsTest" />
       <item itemvalue="TestNG.InvoiceNinjaTest.numberOfInvoicesOfDifferentClientTest" />
       <item itemvalue="TestNG.InvoiceNinjaTest.putNewJsontest" />
       <item itemvalue="TestNG.InvoiceNinjaTest.putNewJsonTest" />
+      <item itemvalue="TestNG.InvoiceNinjaTest.deleteClientTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.InvoiceNinjaTest.deleteClientTest" />
         <item itemvalue="TestNG.InvoiceNinjaTest.putNewJsonTest" />
         <item itemvalue="TestNG.InvoiceNinjaTest.putNewJsontest" />
         <item itemvalue="TestNG.InvoiceNinjaTest.nameOfClientsCityTest" />
         <item itemvalue="TestNG.InvoiceNinjaTest.numberOfInvoicesOfDifferentClientTest" />
-        <item itemvalue="TestNG.InvoiceNinjaTest.numberOfObjectsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -308,8 +315,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25637585" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25973153" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -350,8 +358,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/InvoiceNinjaTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
+        <state relative-caret-position="158">
+          <caret line="88" column="27" selection-start-line="88" selection-start-column="27" selection-end-line="88" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
