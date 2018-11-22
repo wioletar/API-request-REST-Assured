@@ -15,6 +15,7 @@ public class InvoiceNinjaTest {
     private static final String CONTENT_PATH="http://79.137.68.21/api/v1";
     private static final String HEADER_CONTENT_TYPE="application/json";
     private static final String HEADER_TOKEN="apoqghyipkpka2kya3drigita4fyucz3";
+    private StringBuilder sBuilderContentPath= new StringBuilder(CONTENT_PATH);
 
     @BeforeMethod
     public void setUp() {
@@ -29,7 +30,7 @@ public class InvoiceNinjaTest {
                 .header("Content-Type", HEADER_CONTENT_TYPE)
                 .header("X-Ninja-Token", HEADER_TOKEN)
                 .when()
-                .get(CONTENT_PATH+"/clients/104")
+                .get(sBuilderContentPath.append("/clients/104").toString())
                 .then()
                 .assertThat()
                 .statusCode(200)
@@ -50,7 +51,7 @@ public class InvoiceNinjaTest {
                 .header("X-Ninja-Token", HEADER_TOKEN)
                 .pathParam("subPage", nameOfSubPage)
                 .when()
-                .get(CONTENT_PATH+"/{subPage}")
+                .get(sBuilderContentPath.append("/{subPage}").toString())
                 .then()
                 .assertThat()
                 .body("data", hasSize(numberOfObjects));
@@ -75,7 +76,7 @@ public class InvoiceNinjaTest {
                 .header("X-Ninja-Token", HEADER_TOKEN)
                 .pathParam("id", clientId).
                 when().
-                get(CONTENT_PATH+"/clients/{id}").
+                get(sBuilderContentPath.append("/clients/{id}").toString()).
                 then().
                 assertThat().
                 body("data.name", equalTo(clientName));
@@ -103,7 +104,7 @@ public class InvoiceNinjaTest {
                     .header("X-Ninja-Token", HEADER_TOKEN)
                     .body(jsonObject.toString())
                 .when()
-                    .post(CONTENT_PATH+"/clients")
+                    .post(sBuilderContentPath.append("/clients").toString())
                 .then()
                     .assertThat()
                         .statusCode(200)
@@ -116,12 +117,12 @@ public class InvoiceNinjaTest {
 
     @Test
     public void deleteClientTest(){
-        String clientId = "124";
+        String clientId = "99";
         response=restAssured
                 .given()
                 .header("Content-Type", HEADER_CONTENT_TYPE)
                 .header("X-Ninja-Token", HEADER_TOKEN)
-                .delete(CONTENT_PATH+"/clients/"+clientId)
+                .delete(sBuilderContentPath.append("/clients/").append(clientId).toString())
                 .then()
                 .assertThat()
                 .statusCode(200)
